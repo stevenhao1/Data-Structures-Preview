@@ -1,0 +1,38 @@
+package Homework1;
+
+public class LocatedSquare extends Square{
+	private double xL,yL;
+	public LocatedSquare()
+	{
+		setCorner(0.0,0.0);
+	}
+	public LocatedSquare(double x, double y, double sideLength)
+	{
+		super(sideLength);
+		setCorner(x,y);
+	}
+	public void setCorner(double xcoord, double ycoord)
+	{
+		xL=xcoord;
+		yL=ycoord;
+	}
+	public double right() { return xL+getSide(); }      
+	public double left() { return xL; }
+	public double top() { return yL+getSide(); }
+	public double bottom() { return yL; }
+	public LocatedSquare translateDest(double dx, double dy) {
+	    setCorner(left()+dx,bottom()+dy);
+	    return this;
+	}
+	public LocatedSquare translateNonDest(double dx, double dy) {
+	   return new LocatedSquare(left()+dx, right()+dx, getSide());
+	}
+	public LocatedSquare DestRotate()
+	{
+		setCorner(xL+getSide(), yL);
+		return this;
+	}
+	public LocatedSquare NonDestRotate() {
+		return new LocatedSquare(xL+getSide(), yL, getSide());
+	}
+}
