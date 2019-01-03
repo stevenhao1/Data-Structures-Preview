@@ -1,0 +1,23 @@
+package Homework1;
+
+public class Square extends Rectangle{
+	public Square()
+	{
+		super(1.0,1.0);
+	}
+	public Square(double side)
+	{
+		super(side, side);
+	}
+	public void setSide(double side)
+	{
+		this.setSpans(side, side);
+	}
+	public double getSide()
+	{
+		return this.getXSpan();
+	}
+	public void setSpans(double x, double y) {
+		System.out.println( "You may not use setSpans() to set the sides of a square");
+	}
+}
